@@ -1,0 +1,6 @@
+# Copie para netlify.toml se quiser 301 direto para o novo site (sem mostrar o HTML).
+[[redirects]]
+  from = "/*"
+  to = "https://retainly.com.br/"
+  status = 301
+  force = true

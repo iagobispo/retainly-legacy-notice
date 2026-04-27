@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://retainly.com.br/",
+      "permanent": true
+    }
+  ]
+}

@@ -3,115 +3,341 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Retainly — Novo endereço</title>
+    <title>Retainly Study — Novo endereço</title>
     <meta
       name="description"
-      content="A plataforma Retainly mudou. Acesse o novo endereço para continuar seus estudos."
+      content="A Retainly Study mudou de endereço. Continua a tua preparação em retainly.com.br."
     />
-    <!-- Redirecionamento automático após alguns segundos (opcional) -->
-    <meta http-equiv="refresh" content="12;url=https://retainly.com.br/" />
+    <meta http-equiv="refresh" content="14;url=https://retainly.com.br/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         color-scheme: dark;
-        --bg: #0f1419;
-        --card: #1a2332;
-        --text: #e8eef5;
-        --muted: #94a3b8;
-        --accent: #3b82f6;
-        --accent-hover: #60a5fa;
+        --bg: hsl(222 47% 6%);
+        --bg-elevated: hsl(222 47% 8%);
+        --border: hsl(217 33% 17%);
+        --text: hsl(210 40% 98%);
+        --muted: hsl(215 20% 55%);
+        --primary: hsl(32 100% 50%);
+        --primary-deep: hsl(25 100% 45%);
+        --on-primary: hsl(222 47% 8%);
+        --glow: hsl(32 100% 50% / 0.12);
+        --radius-pill: 9999px;
+        --radius-lg: 1rem;
       }
+
       * {
         box-sizing: border-box;
       }
+
       body {
         margin: 0;
         min-height: 100vh;
-        font-family:
-          system-ui,
-          -apple-system,
-          'Segoe UI',
-          Roboto,
-          Ubuntu,
-          sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
         background: var(--bg);
         color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .ambient {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: radial-gradient(
+            ellipse 80% 50% at 50% -20%,
+            var(--glow),
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 100% 100%,
+            hsl(32 100% 50% / 0.06),
+            transparent 50%
+          );
+        z-index: 0;
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding: 1.25rem 1.5rem 2rem;
+        max-width: 42rem;
+        margin: 0 auto;
+      }
+
+      header {
         display: flex;
         align-items: center;
-        justify-content: center;
-        padding: 1.5rem;
-        line-height: 1.55;
+        justify-content: space-between;
+        padding: 0.35rem 0 1.5rem;
       }
-      main {
-        max-width: 32rem;
-        background: var(--card);
-        border-radius: 12px;
-        padding: 2rem;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: var(--text);
       }
-      h1 {
-        font-size: 1.35rem;
-        font-weight: 600;
-        margin: 0 0 0.75rem;
+
+      .brand svg {
+        flex-shrink: 0;
+      }
+
+      .brand span {
+        font-weight: 700;
+        font-size: 1.05rem;
         letter-spacing: -0.02em;
       }
-      p {
-        margin: 0 0 1rem;
+
+      .brand .sub {
+        font-weight: 500;
         color: var(--muted);
         font-size: 0.95rem;
       }
-      p:last-of-type {
-        margin-bottom: 0;
+
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem 0 2rem;
       }
-      a.button {
-        display: inline-block;
-        margin-top: 1.25rem;
-        padding: 0.75rem 1.25rem;
-        background: var(--accent);
-        color: #fff;
-        text-decoration: none;
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        align-self: flex-start;
+        padding: 0.35rem 0.85rem;
+        border-radius: var(--radius-pill);
+        border: 1px solid hsl(32 100% 50% / 0.45);
+        background: hsl(32 100% 50% / 0.08);
+        color: var(--primary);
+        font-size: 0.8rem;
         font-weight: 600;
-        border-radius: 8px;
-        font-size: 0.95rem;
+        margin-bottom: 1.25rem;
       }
-      a.button:hover {
-        background: var(--accent-hover);
+
+      h1 {
+        font-size: clamp(1.65rem, 4.5vw, 2.1rem);
+        font-weight: 800;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+        margin: 0 0 1rem;
       }
-      .countdown {
-        margin-top: 1rem;
-        font-size: 0.85rem;
+
+      h1 .accent {
+        color: var(--primary);
+        background: linear-gradient(
+          135deg,
+          hsl(32 100% 55%) 0%,
+          hsl(28 100% 48%) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+
+      .lead {
+        margin: 0 0 1.75rem;
+        font-size: 1.05rem;
         color: var(--muted);
+        max-width: 36ch;
+      }
+
+      .card {
+        background: linear-gradient(
+          180deg,
+          hsl(222 47% 10%) 0%,
+          var(--bg-elevated) 100%
+        );
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.35rem 1.35rem 1.25rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 24px hsl(222 47% 4% / 0.45);
+      }
+
+      .card p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: hsl(215 20% 62%);
+      }
+
+      .card strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.85rem 1.35rem;
+        border-radius: var(--radius-pill);
+        background: linear-gradient(
+          135deg,
+          hsl(32 100% 50%) 0%,
+          var(--primary-deep) 100%
+        );
+        color: var(--on-primary);
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 16px hsl(32 100% 50% / 0.28);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px hsl(32 100% 50% / 0.38);
+      }
+
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.85rem 1.15rem;
+        border-radius: var(--radius-pill);
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        background: hsl(217 33% 14% / 0.6);
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+
+      .btn-ghost:hover {
+        background: hsl(217 33% 18% / 0.9);
+        border-color: hsl(217 33% 25%);
+      }
+
+      .url-line {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin-top: 0.35rem;
+      }
+
+      .url-line a {
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .url-line a:hover {
+        text-decoration: underline;
+      }
+
+      .countdown {
+        font-size: 0.88rem;
+        color: var(--muted);
+        padding: 0.75rem 0 0;
+        border-top: 1px solid var(--border);
+        margin-top: 0.25rem;
+      }
+
+      .countdown span {
+        color: hsl(215 25% 72%);
+      }
+
+      footer {
+        font-size: 0.8rem;
+        color: hsl(215 20% 45%);
+        text-align: center;
+        padding-top: 1rem;
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>A Retainly mudou de endereço</h1>
-      <p>
-        Se você usava a versão antiga da plataforma, utilize o novo site para
-        acessar sua conta, simulados e conteúdo atualizado.
-      </p>
-      <p>
-        <strong>Novo endereço:</strong>
-        <a href="https://retainly.com.br/">https://retainly.com.br/</a>
-      </p>
-      <a class="button" href="https://retainly.com.br/">Ir para retainly.com.br</a>
-      <p class="countdown" id="hint">
-        Esta página redireciona automaticamente em alguns segundos.
-      </p>
-    </main>
+    <div class="ambient" aria-hidden="true"></div>
+    <div class="wrap">
+      <header>
+        <a class="brand" href="https://retainly.com.br/">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M6 4h12v2H6V4zm0 4h12v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8zm3 3v7h6v-7H9z"
+              fill="hsl(32 100% 50%)"
+            />
+            <path d="M9 7h6v1H9V7z" fill="hsl(32 100% 50% / 0.5)" />
+          </svg>
+          <span>Retainly <span class="sub">Study</span></span>
+        </a>
+      </header>
+
+      <main>
+        <span class="badge">Atualização da plataforma</span>
+        <h1>
+          Sua preparação continua em
+          <span class="accent">retainly.com.br</span>
+        </h1>
+        <p class="lead">
+          Se você chegou aqui por um favorito ou link antigo, fique tranquilo: é
+          normal. O site novo é a mesma Retainly, com a experiência atualizada.
+        </p>
+
+        <div class="card">
+          <p>
+            <strong>O que mudou?</strong> Só o endereço. Use o botão abaixo para
+            entrar na plataforma atual — conta, simulados e conteúdos estão no
+            site novo.
+          </p>
+        </div>
+
+        <div class="actions">
+          <a class="btn-primary" href="https://retainly.com.br/">
+            Ir para Retainly Study
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="btn-ghost" href="https://retainly.com.br/">retainly.com.br</a>
+        </div>
+
+        <p class="url-line">
+          Link direto:
+          <a href="https://retainly.com.br/">https://retainly.com.br/</a>
+        </p>
+
+        <p class="countdown" id="hint" role="status">
+          <span>Daqui a poucos segundos abrimos o site novo para você.</span>
+        </p>
+      </main>
+
+      <footer>
+        Retainly · preparação para certificações cloud
+      </footer>
+    </div>
+
     <script>
       (function () {
         var url = 'https://retainly.com.br/';
-        var seconds = 12;
+        var seconds = 14;
         var el = document.getElementById('hint');
         var left = seconds;
         function tick() {
           if (el) {
-            el.textContent =
-              'Redirecionamento automático em ' +
+            el.innerHTML =
+              '<span>Abrir automaticamente em <strong style="color:hsl(32 100% 50%)">' +
               left +
-              's… Se não abrir, use o botão acima.';
+              '</strong>s — ou use o botão laranja quando quiser.</span>';
           }
           if (left <= 0) {
             window.location.replace(url);

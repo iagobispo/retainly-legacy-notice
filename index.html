@@ -6,9 +6,9 @@
     <title>Retainly Study — Novo endereço</title>
     <meta
       name="description"
-      content="A Retainly Study mudou de endereço. Continua a tua preparação em retainly.com.br."
+      content="Nova Retainly Study em retainly.com.br — mais certificações, questões mais precisas. Ex-usuários demo: contato@retainly.com.br."
     />
-    <meta http-equiv="refresh" content="14;url=https://retainly.com.br/" />
+    <meta http-equiv="refresh" content="18;url=https://retainly.com.br/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -260,6 +260,38 @@
         color: hsl(215 25% 72%);
       }
 
+      .spotlight {
+        margin: 0 0 1.25rem;
+        padding: 1.1rem 1.2rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid hsl(32 100% 50% / 0.35);
+        background: hsl(32 100% 50% / 0.07);
+        box-shadow: 0 0 0 1px hsl(32 100% 50% / 0.06) inset;
+      }
+
+      .spotlight p {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.55;
+        color: hsl(210 35% 92%);
+      }
+
+      .spotlight .hl {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .card a.mail {
+        color: var(--primary);
+        font-weight: 700;
+        text-decoration: none;
+        word-break: break-all;
+      }
+
+      .card a.mail:hover {
+        text-decoration: underline;
+      }
+
       footer {
         font-size: 0.8rem;
         color: hsl(215 20% 45%);
@@ -285,21 +317,42 @@
       </header>
 
       <main>
-        <span class="badge">Atualização da plataforma</span>
+        <span class="badge">Nova experiência Retainly Study</span>
         <h1>
-          Sua preparação continua em
+          Estamos de cara nova em
           <span class="accent">retainly.com.br</span>
         </h1>
         <p class="lead">
-          Se você chegou aqui por um favorito ou link antigo, fique tranquilo: é
-          normal. O site novo é a mesma Retainly, com a experiência atualizada.
+          Se você veio de um link ou favorito antigo, pode ficar tranquilo: a
+          Retainly continua, num endereço novo. Como é um ambiente renovado,
+          você entra em poucos passos com
+          <strong style="color: hsl(210 35% 92%)">cadastro</strong> ou
+          <strong style="color: hsl(210 35% 92%)">login social</strong> (por
+          exemplo, Google) — rápido e direto ao ponto.
         </p>
+
+        <div class="spotlight">
+          <p>
+            <span class="hl">Mais certificações</span> num só lugar e bancos de
+            questões <span class="hl">mais precisos</span> — alinhados ao que
+            importa na prova real, com curadoria para aproximar o simulado do
+            exame.
+          </p>
+        </div>
 
         <div class="card">
           <p>
-            <strong>O que mudou?</strong> Só o endereço. Use o botão abaixo para
-            entrar na plataforma atual — conta, simulados e conteúdos estão no
-            site novo.
+            <strong>Quem já usou a versão demo?</strong> Se você tinha conta na
+            experiência anterior e estudava em modo demonstração, pode escrever
+            para
+            <a class="mail" href="mailto:contato@retainly.com.br?subject=Migra%C3%A7%C3%A3o%20-%20acesso%20certifica%C3%A7%C3%A3o"
+              >contato@retainly.com.br</a
+            >
+            (mesmo domínio <strong>retainly.com.br</strong>), dizendo em qual
+            certificação você se preparava. Avaliamos, caso a caso, a
+            concessão&nbsp;<strong>gratuita</strong> do acesso ao
+            <strong>plano pago</strong> dessa certificação, como cortesia pela
+            mudança de plataforma.
           </p>
         </div>
 
@@ -329,7 +382,7 @@
     <script>
       (function () {
         var url = 'https://retainly.com.br/';
-        var seconds = 14;
+        var seconds = 18;
         var el = document.getElementById('hint');
         var left = seconds;
         function tick() {

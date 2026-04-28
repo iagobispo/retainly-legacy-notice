@@ -53,6 +53,12 @@ Faça deploy da pasta com `index.html`, `runtime-config.js` e o restante na raiz
 
 **Netlify (exemplo):** Build command: `npm run build`; Publish directory: `/` (raiz do repo).
 
+### Railpack / Railway / Dokploy (detecção Node)
+
+Se o builder usar **Railpack** e aparecer *“No start command detected”*: este repositório inclui `package.json` com **`npm run start`** → `node server.cjs`, um servidor estático mínimo (sem dependências npm extra). Defina **Build**: `npm run build` (gera `runtime-config.js`) e deixe o **Start** por omissão. A variável **`PORT`** é lida automaticamente.
+
+Alternativa sem servidor Node: crie um ficheiro **`Staticfile`** na raiz (ver [Railpack — static](https://railpack.com/languages/staticfile/)) e/ou `RAILPACK_STATIC_FILE_ROOT=.` / `RAILPACK_SPA_OUTPUT_DIR=.` nas variáveis do host, conforme a documentação do teu painel.
+
 ### Opção B — Redirecionamento imediato (301) sem mostrar a página
 
 Se preferir que **todo** o tráfego vá direto para o novo domínio (sem passar pelo HTML):

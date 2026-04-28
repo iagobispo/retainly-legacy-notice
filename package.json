@@ -3,7 +3,8 @@
   "private": true,
   "description": "Página estática de transição retainly.com.br (com modo manutenção via env no build)",
   "scripts": {
-    "build": "node scripts/generate-runtime-config.mjs"
+    "build": "node scripts/generate-runtime-config.mjs",
+    "start": "node server.cjs"
   },
   "engines": {
     "node": ">=18"

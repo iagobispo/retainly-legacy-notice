@@ -8,7 +8,6 @@
       name="description"
       content="Nova Retainly Study em retainly.com.br — mais certificações, questões mais precisas. Ex-usuários demo: contato@retainly.com.br."
     />
-    <meta http-equiv="refresh" content="18;url=https://retainly.com.br/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -298,9 +297,98 @@
         text-align: center;
         padding-top: 1rem;
       }
+
+      #scene-maintenance {
+        display: none;
+      }
+
+      html.is-maintenance #scene-maintenance {
+        display: block;
+      }
+
+      html.is-maintenance #scene-normal {
+        display: none !important;
+      }
+
+      .badge--muted {
+        border-color: hsl(215 25% 35%);
+        background: hsl(217 33% 14% / 0.8);
+        color: hsl(215 25% 72%);
+      }
+
+      .maintenance-note {
+        margin: 0;
+        font-size: 0.95rem;
+        color: hsl(215 20% 62%);
+        line-height: 1.55;
+      }
+
+      .maintenance-note + .maintenance-note {
+        margin-top: 0.85rem;
+      }
     </style>
+    <script src="runtime-config.js"></script>
+    <script>
+      (function () {
+        var c = window.__RETAINLY_LEGACY__;
+        if (c && c.maintenance) {
+          document.documentElement.classList.add('is-maintenance');
+          document.title = 'Retainly Study — Manutenção';
+          var meta = document.querySelector('meta[name="description"]');
+          if (meta) {
+            meta.setAttribute(
+              'content',
+              'Esta página está em manutenção. Você pode tentar retainly.com.br ou voltar mais tarde.',
+            );
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
+    <div id="scene-maintenance">
+      <div class="ambient" aria-hidden="true"></div>
+      <div class="wrap">
+        <header>
+          <div class="brand" style="pointer-events: none">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M6 4h12v2H6V4zm0 4h12v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8zm3 3v7h6v-7H9z"
+                fill="hsl(32 100% 50%)"
+              />
+              <path d="M9 7h6v1H9V7z" fill="hsl(32 100% 50% / 0.5)" />
+            </svg>
+            <span>Retainly <span class="sub">Study</span></span>
+          </div>
+        </header>
+        <main>
+          <span class="badge badge--muted">Manutenção temporária</span>
+          <h1>Já voltamos — é rapidinho</h1>
+          <p class="lead" style="max-width: none">
+            Estamos ajustando esta página de transição. Não é um erro no seu
+            dispositivo — é só uma pausa enquanto atualizamos algo do nosso
+            lado.
+          </p>
+          <div class="card">
+            <p class="maintenance-note">
+              A <strong>plataforma principal</strong> em
+              <strong>retainly.com.br</strong> pode continuar disponível. Se
+              precisar de ajuda urgente, escreva para
+              <a class="mail" href="mailto:contato@retainly.com.br">contato@retainly.com.br</a>.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="btn-primary" href="https://retainly.com.br/">
+              Tentar retainly.com.br
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </main>
+        <footer>Retainly · preparação para certificações cloud</footer>
+      </div>
+    </div>
+
+    <div id="scene-normal">
     <div class="ambient" aria-hidden="true"></div>
     <div class="wrap">
       <header>
@@ -378,9 +466,13 @@
         Retainly · preparação para certificações cloud
       </footer>
     </div>
+    </div>
 
     <script>
       (function () {
+        var cfg = window.__RETAINLY_LEGACY__;
+        if (cfg && cfg.maintenance) return;
+
         var url = 'https://retainly.com.br/';
         var seconds = 18;
         var el = document.getElementById('hint');

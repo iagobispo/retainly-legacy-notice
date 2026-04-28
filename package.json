@@ -1,0 +1,11 @@
+{
+  "name": "retainly-legacy-notice",
+  "private": true,
+  "description": "Página estática de transição retainly.com.br (com modo manutenção via env no build)",
+  "scripts": {
+    "build": "node scripts/generate-runtime-config.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
